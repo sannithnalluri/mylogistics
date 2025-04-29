@@ -77,14 +77,16 @@ const OrderSummaryCard = ({ data ,formData,resetFormData}) => {
           const result = await response.json();
           console.log('Shipment booked:', result);
           alert('Shipment booked successfully!');
-          setDisablebutton(false)
           resetFormData(); // Reset the form data after booking
           console.log('Booking shipment with data:', formData);
         } catch (error) {
-          setDisablebutton(false);
-          setLoading(false)
+         
           console.error('Error booking shipment:', error);
           alert('Failed to book shipment. Please try again.');
+        }
+        finally{
+            setDisablebutton(false);
+            setLoading(false)
         }
       }
 
