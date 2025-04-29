@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 export default function TopBar() {
@@ -6,7 +7,7 @@ export default function TopBar() {
       
       {/* User Info */}
       <div className="flex items-center gap-3">
-        <img 
+        <Image 
           className="w-12 h-12 rounded-full object-cover"
           src="https://img.freepik.com/free-photo/smiling-businessman-face-portrait-wearing-suit_53876-148138.jpg?t=st=1745563469~exp=1745567069~hmac=80b8311b1ba378d7085b638f49c16ae8f5d5d7cfcba80d8d125e272cd9016d6c&w=1060" 
           alt="Profile"

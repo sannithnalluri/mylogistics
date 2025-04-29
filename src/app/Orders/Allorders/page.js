@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import TableData from './DisplayData'
 
-export default function page() {
+export default function Page() {
   const [orderData, setOrderData] = useState(null);
 
   useEffect(() => {
