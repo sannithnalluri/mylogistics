@@ -14,26 +14,18 @@ const Dashboard = () => {
 
         {/* Warehouse Stats */}
         <Card title="Inventory Items" value="10,000+" />
-        <Card title="Storage Capacity" value="82% Full" />
-        <Card title="Pick & Pack Status" value="Running" />
 
         {/* Fleet Management */}
         <Card title="Active Vehicles" value="58" />
-        <Card title="Maintenance Alerts" value="3" />
         <Card title="Drivers Assigned" value="42" />
 
         {/* Delivery Performance */}
-        <Card title="On-time Rate" value="96.2%" />
-        <Card title="Avg Delivery Time" value="2.4 Days" />
-        <Card title="Delivery Exceptions" value="7" />
 
         {/* Finance & Costing */}
-        <Card title="Cost per Shipment" value="$7.80" />
         <Card title="Revenue" value="$24,300" />
         <Card title="Top Carrier Cost" value="$5,000" />
 
         {/* Notifications */}
-        <Card title="Delay Notifications" value="12" />
         <Card title="Low Stock Warnings" value="5" />
         <Card title="Compliance Issues" value="2" />
       </div>
