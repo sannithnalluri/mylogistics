@@ -1,6 +1,8 @@
 'use client'
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import Image from 'next/image';
+const logo = require("./Assets/vrrlogo.png")
 
 const Sidebar = () => {
   const [openSubmenu, setOpenSubmenu] = useState(null);
@@ -18,7 +20,7 @@ const Sidebar = () => {
       title: 'ORDERS',
       subItems: [
         { name: 'NEW ORDER', link: '/Orders/NewOrder' },
-        { name: 'Dispathced', link: '/events/upcoming' },
+       
         {name:"ALL ORDERS", link:"/Orders/Allorders"},
       ],
     },
@@ -26,11 +28,10 @@ const Sidebar = () => {
       title: 'Team Management',
       subItems: [
         { name: 'Teams', link: '/teams' },
-        { name: 'Roles', link: '/roles' },
       ],
     },
     {
-      title: 'Settings',
+      title: 'Delivery',
       link: '/settings',
     },
     {
@@ -41,7 +42,15 @@ const Sidebar = () => {
 
   return (
     <div className="w-64 h-screen bg-white text-black shadow-lg flex flex-col p-4 fixed">
-      <div className="text-2xl font-bold mb-6">🌐 MYLOGISTICS</div>
+      <div className="text-2xl font-bold mb-6"
+      >
+        <Image
+        src={logo}
+        width={250}
+        height={40}
+        alt='vvr logo'
+        />
+      </div>
       <nav className="flex flex-col gap-2">
         {navItems.map((item, idx) => (
           <div key={idx}>

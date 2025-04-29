@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, {useState, useMemo } from 'react';
 import formatData from './Dataformat';
 
 const OrderSummaryCard = ({ data ,formData,resetFormData}) => {
+    const [disabledbutton,setDisablebutton] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const [extracost, setExtracost] = useState({
         withPassCharges: '0',
@@ -56,10 +58,11 @@ const OrderSummaryCard = ({ data ,formData,resetFormData}) => {
     
     const BookShipment = async () => {
        const formattedData = formatData({formData,extracost,summary,data});
-       console.log("Formatted Data",formattedData);
 
         try {
-          const response = await fetch('http://localhost:5000/order/', {
+            setDisablebutton(true);
+            setLoading(true);
+          const response = await fetch('https://logisticsapi-lk2p.onrender.com/order/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -74,16 +77,14 @@ const OrderSummaryCard = ({ data ,formData,resetFormData}) => {
           const result = await response.json();
           console.log('Shipment booked:', result);
           alert('Shipment booked successfully!');
+          setDisablebutton(false)
           resetFormData(); // Reset the form data after booking
-
           console.log('Booking shipment with data:', formData);
         } catch (error) {
+          setDisablebutton(false);
+          setLoading(false)
           console.error('Error booking shipment:', error);
           alert('Failed to book shipment. Please try again.');
-        }
-        finally {
-            resetFormData(); // Reset the form data after booking
-
         }
       }
 
@@ -142,11 +143,16 @@ const OrderSummaryCard = ({ data ,formData,resetFormData}) => {
                 </span>
             </div>
         </div>
+
         <button
-        onClick={BookShipment}
-        className='bg-blue-500 text-white px-4 py-2 rounded-md mt-4 w-full'>
-        Book Shipment
-      </button>
+      disabled={disabledbutton || loading}
+      onClick={BookShipment}
+      className={`bg-blue-500 text-white px-4 py-2 rounded-md mt-4 w-full ${
+        (disabledbutton || loading) && 'opacity-50 cursor-not-allowed'
+      }`}
+    >
+      {loading ? 'Booking...' : 'Book Shipment'}
+    </button>
       </>
     );
 };

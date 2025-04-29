@@ -26,7 +26,7 @@ export default function ConsignorandConsigneeDetails({ formData, handleFormDataC
       <div >
       <h2 className='text-gray-500 text-xl font-semibold pt-4 ml-4'>Consignor Details</h2>
       <div className='p-4 grid grid-cols-1 md:grid-cols-2 gap-1'>
-      <lable>ConsignorName</lable>
+      <label>ConsignorName</label>
       <input
         type="text"
         name="consignorName"
@@ -35,17 +35,17 @@ export default function ConsignorandConsigneeDetails({ formData, handleFormDataC
         placeholder="Consignor Name"
         className="border p-2 h-10 mb-4"
       />
-      <lable>ConsignorPhone</lable>
+      <label>ConsignorPhone</label>
 
       <input
         type="text"
         name="consignorPhone"
         value={consignor.consignorPhone || ''}
         onChange={handleConsignorChange}
-        placeholder="Consignor Address"
+        placeholder="ConsignorPhone"
         className="border p-2 w-full h-10 mb-4"
       />
-      <lable>consignorGST_AdhaarNo</lable>
+      <label>consignorGST_AdhaarNo</label>
 
          <input
         type="text"
@@ -66,7 +66,7 @@ export default function ConsignorandConsigneeDetails({ formData, handleFormDataC
       {/* Consignee Details Form */}
       <h2 className='text-gray-500 text-xl font-semibold ml-4'>Consignee Details</h2>
       <div className='p-4 grid grid-cols-1 md:grid-cols-2 gap-1'>
-        <lable>ConsigneeName</lable>
+        <label>ConsigneeName</label>
       <input
         type="text"
         name="consigneeName"
@@ -75,7 +75,7 @@ export default function ConsignorandConsigneeDetails({ formData, handleFormDataC
         placeholder="Consignee Name"
         className="border p-2 w-full mb-4 h-10"
       />
-      <lable>ConsigneePhone</lable>
+      <label>ConsigneePhone</label>
       <input
         type="text"
         name="consigneePhone"
@@ -90,7 +90,7 @@ export default function ConsignorandConsigneeDetails({ formData, handleFormDataC
         name="consigneeGST_Adhaar"
         value={consignee.consigneeGST_Adhaar || ''}
         onChange={handleConsigneeChange}
-        placeholder="Consignee Address"
+        placeholder="ConsigneeGST_ADHAR"
         className="border p-2 w-full mb-4"
       />
 
